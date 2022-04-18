@@ -70,7 +70,7 @@ SIF ARG == 1
 RETURN 
 
 ;속도보정
-@SKILL_SPEED_, ARG = -1;아 ARG 의미가 뭔지 원
+@SKILL_SPEED_, ARG = -1; ARG 의미가 뭔지 원
 RETURN 
 
 ;　구상の표시とその타입
@@ -83,7 +83,7 @@ RETURN
 
 ;스킬변화？用랭크
 @SKILL_RANK_
-RETURN 
+RETURN 0;전부 전용기니 0 고정
 
 
 
@@ -131,6 +131,6 @@ RETURN 0
 ;조건이 없다면 RETURN 1
 
 ;사용조건
-@SKILL_SPECIAL_ACTIONABLE_10,ARG
+@SKILL_SPECIAL_ACTIONABLE_,ARG
 RETURN 1
 ;とくにない
