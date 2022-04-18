@@ -16,15 +16,15 @@ RETURN 190
 
 ;　최저공격횟수
 @SKILL_MINATTACKNUMBER_5002,ARG
-RETURN 
+RETURN 1
 
 ;　최대공격횟수
 @SKILL_MAXATTACKNUMBER_5002,ARG
-RETURN 
+RETURN 1
 
 ;　ＨＰ2を支払うかＭＰ3を支払うか
 @SKILL_COSTTYPE_5002, ARG
-RETURN 
+RETURN 3
 ;소비안함＝1
 
 ;　コストの量
@@ -33,32 +33,33 @@ RETURN 8
 
 ;　相性
 @SKILL_TYPE_5002,ARG
-RETURN 
+RETURN 4
+;화염
 
 ;　1EXTRAか2MAGICか
 @SKILL_DECIDE_TYPE_5002, ARG
-RETURN 
+RETURN 1
 
 ;　1물리데미지で計算するか2마법데미지で計算するか
 @SKILL_DAMAGETYPE_5002, ARG
-RETURN 
+RETURN 1
 
 
 ;　대상が1적か2아군か3場전체か4特殊か
 @SKILL_TARGET_5002
-RETURN 
+RETURN 1
 
 ;　사거리
 @SKILL_RANGE_5002,ARG
-RETURN 
+RETURN 3
 
 ;　범위　1１체　2１열　3전체　4　적아군전체
 @SKILL_SPHERE_5002,ARG
-RETURN 
+RETURN 1
 
 ;　 効果の타입　1공격、2회복、3상태변화、4特殊、5상태회복
 @SKILL_EFECT_5002
-RETURN 
+RETURN 1
 
 ;　 特殊処理の有無、及び処理内容
 @SKILL_SPECIALEFECT_5002,ARG
@@ -74,7 +75,7 @@ RETURN 7
 
 ;속도보정
 @SKILL_SPEED_5002, ARG = -1;이 ARG 의미가 뭔지 원
-RETURN 
+RETURN 0
 
 ;　구상の표시とその타입
 @SKILL_MESSAGE_5002,ARG
@@ -124,7 +125,7 @@ CALL ATTACK_FIELD,ARG,ARG:1,5002
 
 ;　 설명文の표시
 @SKILL_EXPLAIN_5002
-PRINTL ;스킬 설명문
+PRINTL [후열] 적 1체와 주변에게 화염속성 중 물리데미지, 저 확률로 FLAME;스킬 설명문
 
 ;継承に필요한部位
 @継承部位_5002,ARG
