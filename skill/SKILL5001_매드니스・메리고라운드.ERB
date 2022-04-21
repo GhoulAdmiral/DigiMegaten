@@ -20,6 +20,14 @@ RETURN 3
 @SKILL_MAXATTACKNUMBER_5001,ARG
 RETURN 6
 
+;一体辺りの최대ＨＩＴ数
+@SKILL_MAXATK_PER_5001,ARG
+RETURN 5
+
+;一体辺りの최저ＨＩＴ数
+;@SKILL_MINATK_PER_5001,ARG
+;RETURN 0
+
 ;　ＨＰ2を支払うかＭＰ3を支払うか
 @SKILL_COSTTYPE_5001, ARG
 RETURN 3
@@ -107,7 +115,7 @@ RETURN 0
 ;스킬及び行動の実行
 ;====================================================
 @ACTION_5001,ARG,ARG:1
-CALL ATTACK_FIELD,ARG,ARG:1,5001
+CALL ATTACK_RAND,ARG,ARG:1,5001
 
 
 
