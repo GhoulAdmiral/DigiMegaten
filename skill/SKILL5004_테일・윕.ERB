@@ -112,7 +112,7 @@ RETURN 0
 ;스킬及び行動の実行
 ;====================================================
 @ACTION_5004,ARG,ARG:1
-CALL ATTACK_FIELD,ARG,ARG:1,5004
+CALL ATTACK_SPREAD,ARG,ARG:1,5004
 
 
 
@@ -129,7 +129,7 @@ PRINTL [전열] 적 1체와 주변에 타격속성 중 물리데미지.
 
 ;継承に필요한部位
 @継承部位_5004,ARG
-SIF TALENT:ARG:꼬리;필요한 무기 혹 신체부위
+SIF TALENT:ARG:꼬리
 	RETURN 1
 RETURN 0
 ;조건이 없다면 RETURN 1
