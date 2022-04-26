@@ -1,17 +1,10 @@
 
 
-@FUSION_SPECIAL_103_4402,ARG,ARG:1
+;@FUSION_SPECIAL_103_4402,ARG,ARG:1
 ;팔라스아테나×40레벨 이하 조마=미네르바몬
-;기존 팔라스아테나×40레벨 이상 조마=잔다르크의 합체식으로 인해
-IF NO:ARG == 4402
-	SIF BASE:ARG:LV > 40
-		RETURN 0
-ELSE
-	SIF BASE:(ARG:1):LV > 40
-		RETURN 0
-ENDIF
-SIF EQUIP:MASTER:디지바이스
-RETURN 8500
+;기존 팔라스아테나×40레벨 이상 조마=잔다르크의 합체식으로 인해 보류
+;SIF EQUIP:MASTER:디지바이스
+;RETURN 8500
 
 @FUSION_SPECIAL_886_4402,ARG,ARG:1
 ;가름×조마=파피몬
