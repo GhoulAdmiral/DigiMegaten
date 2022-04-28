@@ -68,7 +68,9 @@ PRINTW 아라타가 자신 앞에 푸른 스크린을 띄워 잠시 조작하더
 PRINTW "이게 우리 해커들이 쓰는 디지몬의 사역 프로그램. '디지바이스'야. 자, 어서 받아가."
 PRINTFORMW %CALLNAME:MASTER%은 그 프로그램을 건네받아, 가상 COMP 안에 내려받았다. 
 PRINTL
-;%CALLNAME:MASTER%은 인스톨 소프트 [디지바이스]를 획득했다!
+RESULTS = 인스톨소프트 【디지바이스】를 손에 넣었다.
+		CALL MESSAGE_B(1, RESULTS)
+		ITEM:디지바이스 = 1
 PRINTL
 PRINTW "이게 있으면 전투 중에 디지몬들을 스캔해서 데이터를 손에 넣을 수 있어."
 PRINTW "뭐? '악마회화'? 무슨 말인지는 몰라도. 댁이 생각하는 그런 방식이 방식이 아닌 건 확실해."
@@ -139,6 +141,9 @@ FLAG:회화불능플래그 = 1
 FLAG:선제기습취소 = 1
 WAIT
 CALL SET_ENEMY,9,8510,20,0;약화된 이터(20레벨)
+CFLAG:(CHARANUM-1):ＨＰ보정 += 500
+CFLAG:(CHARANUM-1):ＭＰ보정 += 2000
+MAXBASE:(CHARANUM-1):화염 = 200
 CALL BATTLE_START
 CUSTOMDRAWLINE =
 WAIT
