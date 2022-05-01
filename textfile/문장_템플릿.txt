@@ -1,0 +1,65 @@
+;======================================================
+;장비品の데이터
+;;
+;======================================================
+@기본능력수정_86ㅇㅇ,ARG,ARG:1 = -1
+SELECTCASE GET_BASESTATUS(ARG)
+;스탯 강화의 정보
+RETURN 0
+
+@증가CP_
+;부담증가
+RETURN 
+
+@전투능력수정_,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 0
+
+@방어상성_,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 100
+
+@공격상성_, ARG = -1
+RETURN 2
+
+@최저공격횟수_, ARG = -1
+RETURN 1
+
+@최대공격횟수_, ARG = -1
+RETURN 1
+
+@사거리_, ARG = -1
+RETURN 1
+
+@공격범위_, ARG = -1
+RETURN 1
+
+@장비箇所_
+RETURN 0
+
+@필요레벨_
+RETURN 0
+
+@장비조건_,ARG
+SIF NO:ARG == ;장비 악마의 번호, 2체 이상일 경우는 || 붙이고서 추가
+	RETURN 1
+RETURN 0
+
+@장비추가스킬_,ARG,ARG:1 = -1
+SELECTCASE ARG
+	CASE 0
+		RETURN [[스킬:;스킬명]]
+ENDSELECT
+RETURN 0
+
+
+@장비조건설명_
+PRINTL 
+
+@구입조건_8600
+RETURN 0
+
+@장비해설_8600
+PRINTL 
