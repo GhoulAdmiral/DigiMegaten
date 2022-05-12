@@ -127,7 +127,9 @@ PRINTL [전열] 적 1체에게 전술속성 2~3회 중 물리데미지
 
 ;継承に필요한部位
 @継承部位_5013,ARG
-SIF TALENT:ARG:손
+SIF TALENT:ARG:갈퀴발
+	RETURN 1
+SIF TALENT:ARG:갈퀴
 	RETURN 1
 RETURN 0
 ;조건이 없다면 RETURN 1
