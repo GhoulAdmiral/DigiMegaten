@@ -1,0 +1,144 @@
+﻿;스킬의 템플릿이 적용되어 있음
+
+;스킬名
+@SKILL_NAME_5029,ARG
+RESULTS = 세피로트・크리스탈
+
+;　명중
+@SKILL_HITRATE_5029, ARG
+RETURN 
+
+;　위력
+@SKILL_POWER_5029, ARG
+RETURN 
+
+;　최저공격횟수
+@SKILL_MINATTACKNUMBER_5029,ARG
+RETURN 
+
+;　최대공격횟수
+@SKILL_MAXATTACKNUMBER_5029,ARG
+RETURN 
+
+;　ＨＰ2を支払うかＭＰ3を支払うか
+@SKILL_COSTTYPE_5029, ARG
+RETURN 
+;소비안함＝1
+
+;　コストの量
+@SKILL_COST_5029,ARG
+RETURN 
+
+;　相性
+@SKILL_TYPE_5029,ARG
+RETURN 
+
+;　1EXTRAか2MAGICか
+@SKILL_DECIDE_TYPE_5029, ARG
+RETURN 
+
+;　1물리데미지で計算するか2마법데미지で計算するか
+@SKILL_DAMAGETYPE_5029, ARG
+RETURN 
+
+
+;　대상が1적か2아군か3場전체か4特殊か
+@SKILL_TARGET_5029
+RETURN 
+
+;　사거리
+@SKILL_RANGE_5029,ARG
+RETURN 
+
+;　범위　1１체　2１열　3전체　4　적아군전체
+@SKILL_SPHERE_5029,ARG
+RETURN 
+
+;　 効果の타입　1공격、2회복、3상태변화、4特殊、5상태회복
+@SKILL_EFECT_5029
+RETURN 
+
+;　 特殊処理の有無、及び処理内容
+@SKILL_SPECIALEFECT_5029,ARG
+;ARG = 1だった場合は処理の有無を返します
+SIF ARG == 1
+	RETURN 0
+;以下に特殊な処理を記述します
+
+;계승타입
+@SKILL_SUCCESSION_TYPE_5029
+RETURN 
+
+;속도보정
+@SKILL_SPEED_5029, ARG = -1; ARG 의미가 뭔지 원
+RETURN 
+
+;　구상の표시とその타입
+@SKILL_MESSAGE_5029,ARG
+
+
+;전투時以外に사용できるか
+@SKILL_ACTIONABLE_FIELD_5029
+RETURN 
+
+;스킬변화？用랭크
+@SKILL_RANK_5029
+RETURN 0;전부 전용기니 0 고정
+
+
+
+;テン플레이트用、추가효과シリーズ
+;추가효과스테이터스
+@SKILL_ADDTIONAL_STATE_5029,ARG
+RETURN 
+
+;추가효과상성
+@SKILL_ADDTIONAL_TYPE_5029,ARG
+RETURN 
+
+;추가효과기본부여확률
+@SKILL_ADDTIONAL_BASE_RATE_5029,ARG
+RETURN 
+
+;추가효과부여확률上限
+@SKILL_ADDTIONAL_MAX_RATE_5029,ARG
+RETURN 
+
+;====================================================
+;스킬及び行動の実行
+;====================================================
+@ACTION_5029,ARG,ARG:1
+;단일공격이면 LOCAL = POS(ARG:1)(줄바꾸고)
+;CALL ATTACK_SINGLE,ARG,LOCAL,(번호)
+;범위공격이면 CALL ATTACK_FIELD,ARG,ARG:1,(번호)
+;확산공격이면 CALL ATTACK_SPREAD,ARG,ARG:1,(번호)
+;전체 랜덤공격이면 CALL ATTACK_RAND,ARG,ARG:1,()
+;적 1체 상태이상부여면 LOCAL = POS(ARG:1)(줄바꾸고)
+;CALL SINGLE_BADSTATE,ARG,LOCAL,(번호)
+;범위 상태이상부여(혹 즉사)면 CALL FIELD_BADSTATE,ARG,ARG:1,(번호)
+;단일 회복이면 CALL HEAL_SINGLE,ARG,LOCAL,(번호)
+;전체 회복이면 CALL ALL_HEAL, ARG, POS(LOCAL), (번호) (아마도)
+;특수조건이면 CALL SPECIAL_ACTION_(번호)_ALL,ARG ;;이것도 전체대상일 경우에일듯
+
+
+
+
+;====================================================
+;実行内容ここまで
+;====================================================
+
+;　 설명文の표시
+@SKILL_EXPLAIN_5029
+PRINTL ;스킬 설명문
+
+;継承に필요한部位
+@継承部位_5029,ARG
+SIF TALENT:ARG:;필요한 무기 혹 신체부위
+	RETURN 1
+RETURN 0
+;조건이 없다면 RETURN 1
+
+;사용조건
+@SKILL_SPECIAL_ACTIONABLE_5029,ARG
+RETURN 1
+;とくにない
