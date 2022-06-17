@@ -6,57 +6,58 @@ RESULTS = 호엽설
 
 ;　명중
 @SKILL_HITRATE_5035, ARG
-RETURN 
+RETURN 110
 
 ;　위력
 @SKILL_POWER_5035, ARG
-RETURN 
+RETURN 220
 
 ;　최저공격횟수
 @SKILL_MINATTACKNUMBER_5035,ARG
-RETURN 
+RETURN 1
 
 ;　최대공격횟수
 @SKILL_MAXATTACKNUMBER_5035,ARG
-RETURN 
+RETURN 1
 
 ;　ＨＰ2を支払うかＭＰ3を支払うか
 @SKILL_COSTTYPE_5035, ARG
-RETURN 
+RETURN 3
 ;소비안함＝1
 
 ;　コストの量
 @SKILL_COST_5035,ARG
-RETURN 
+RETURN 6
 
 ;　相性
 @SKILL_TYPE_5035,ARG
-RETURN 
+RETURN 17
+;만능
 
 ;　1EXTRAか2MAGICか
 @SKILL_DECIDE_TYPE_5035, ARG
-RETURN 
+RETURN 1
 
 ;　1물리데미지で計算するか2마법데미지で計算するか
 @SKILL_DAMAGETYPE_5035, ARG
-RETURN 
+RETURN 1
 
 
 ;　대상が1적か2아군か3場전체か4特殊か
 @SKILL_TARGET_5035
-RETURN 
+RETURN 1
 
 ;　사거리
 @SKILL_RANGE_5035,ARG
-RETURN 
+RETURN 3
 
 ;　범위　1１체　2１열　3전체　4　적아군전체
 @SKILL_SPHERE_5035,ARG
-RETURN 
+RETURN 1
 
 ;　 効果の타입　1공격、2회복、3상태변화、4特殊、5상태회복
 @SKILL_EFECT_5035
-RETURN 
+RETURN 1
 
 ;　 特殊処理の有無、及び処理内容
 @SKILL_SPECIALEFECT_5035,ARG
@@ -67,11 +68,12 @@ SIF ARG == 1
 
 ;계승타입
 @SKILL_SUCCESSION_TYPE_5035
-RETURN 
+RETURN 20
+;만능
 
 ;속도보정
 @SKILL_SPEED_5035, ARG = -1; ARG 의미가 뭔지 원
-RETURN 
+RETURN 4
 
 ;　구상の표시とその타입
 @SKILL_MESSAGE_5035,ARG
@@ -79,7 +81,7 @@ RETURN
 
 ;전투時以外に사용できるか
 @SKILL_ACTIONABLE_FIELD_5035
-RETURN 
+RETURN 0
 
 ;스킬변화？用랭크
 @SKILL_RANK_5035
@@ -90,36 +92,26 @@ RETURN 0;전부 전용기니 0 고정
 ;テン플레이트用、추가효과シリーズ
 ;추가효과스테이터스
 @SKILL_ADDTIONAL_STATE_5035,ARG
-RETURN 
+RETURN 0
 
 ;추가효과상성
 @SKILL_ADDTIONAL_TYPE_5035,ARG
-RETURN 
+RETURN 0
 
 ;추가효과기본부여확률
 @SKILL_ADDTIONAL_BASE_RATE_5035,ARG
-RETURN 
+RETURN 0
 
 ;추가효과부여확률上限
 @SKILL_ADDTIONAL_MAX_RATE_5035,ARG
-RETURN 
+RETURN 0
 
 ;====================================================
 ;스킬及び行動の実行
 ;====================================================
 @ACTION_5035,ARG,ARG:1
-;단일공격이면 LOCAL = POS(ARG:1)(줄바꾸고)
-;CALL ATTACK_SINGLE,ARG,LOCAL,(번호)
-;범위공격이면 CALL ATTACK_FIELD,ARG,ARG:1,(번호)
-;확산공격이면 CALL ATTACK_SPREAD,ARG,ARG:1,(번호)
-;전체 랜덤공격이면 CALL ATTACK_RAND,ARG,ARG:1,()
-;적 1체 상태이상부여면 LOCAL = POS(ARG:1)(줄바꾸고)
-;CALL SINGLE_BADSTATE,ARG,LOCAL,(번호)
-;범위 상태이상부여(혹 즉사)면 CALL FIELD_BADSTATE,ARG,ARG:1,(번호)
-;단일 회복이면 CALL HEAL_SINGLE,ARG,LOCAL,(번호)
-;전체 회복이면 CALL ALL_HEAL, ARG, POS(LOCAL), (번호) (아마도)
-;특수조건이면 CALL SPECIAL_ACTION_(번호)_ALL,ARG ;;이것도 전체대상일 경우에일듯
-
+LOCAL = POS(ARG:1)
+CALL ATTACK_SINGLE,ARG,LOCAL,5035
 
 
 
@@ -129,14 +121,12 @@ RETURN
 
 ;　 설명文の표시
 @SKILL_EXPLAIN_5035
-PRINTL ;스킬 설명문
+PRINTL 적 1체에게 만능 속성 중 물리데미지
 
 ;継承に필요한部位
 @継承部位_5035,ARG
-SIF TALENT:ARG:;필요한 무기 혹 신체부위
-	RETURN 1
-RETURN 0
-;조건이 없다면 RETURN 1
+RETURN 1
+
 
 ;사용조건
 @SKILL_SPECIAL_ACTIONABLE_5035,ARG
