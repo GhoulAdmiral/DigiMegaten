@@ -1,6 +1,6 @@
 ﻿;이벤트플래그:111:0 리스트
 ;루트를 만드는 단계가 아닌고로 스토리 진행의 플래그만 있음
-;0:시작 전     1:스토리 1화 클리어
+;0:시작 전     1:스토리 1화 클리어		2: 스토리 2화 클리어
 
 ;=================================================
 ;   sub EVENT_111_FLAG_RESET
@@ -21,6 +21,11 @@ SIF GETBIT(FLAG:이벤트출현2,111-64)
 IF BASE:MASTER:LV > 15 && 이벤트フラグ:111:0 == 0
 	RESULTS = [디지몬 MOD] Into the Coulomb
 	RETURN 1
+
+ELSEIF BASE:MASTER:LV > 30 && 이벤트フラグ:111:0 == 1
+	RESULTS = [디지몬 MOD] Halfwit Girl
+	RETURN 1
+	
 ENDIF
 RETURN 0
 
@@ -31,5 +36,10 @@ RETURN 0
 @SHOPCOM_EVENT_111
 IF 이벤트フラグ:111:0 == 0
 	CALL EVENT_111_1
+	RETURN 0
+ENDIF
+
+IF 이벤트フラグ:111:0 == 1
+	CALL EVENT_111_2
 	RETURN 0
 ENDIF
