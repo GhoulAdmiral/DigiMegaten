@@ -1,0 +1,67 @@
+﻿;======================================================
+;장비品の데이터
+;;
+;======================================================
+@기본능력수정_8302,ARG,ARG:1 = -1
+SELECTCASE GET_BASESTATUS(ARG)
+    CASE "인내력"
+		RETURN 4
+	CASE "속도"
+		RETURN 4
+RETURN 0
+
+@증가CP_8302
+RETURN 100
+
+@전투능력수정_8302,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 0
+
+@방어상성_8302,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 100
+
+@공격상성_8302, ARG = -1
+RETURN 2
+
+@최저공격횟수_8302, ARG = -1
+RETURN 1
+
+@최대공격횟수_8302, ARG = -1
+RETURN 1
+
+@사거리_8302, ARG = -1
+RETURN 1
+
+@공격범위_8302, ARG = -1
+RETURN 1
+
+@장비箇所_8302
+RETURN 0
+
+@필요레벨_8302
+RETURN 0
+
+@장비조건_8302,ARG
+SIF NO:ARG == 8522 || NO:ARG ==8523
+	RETURN 1
+RETURN 0
+
+@장비추가스킬_8302,ARG,ARG:1 = -1
+SELECTCASE ARG
+	CASE 0
+		RETURN [[스킬:기합]]
+ENDSELECT
+RETURN 0
+
+
+@장비조건설명_8302
+PRINTL 가루다몬 계열의 완전체 이상 디지몬
+
+@구입조건_8302
+RETURN 0
+
+@장비해설_8302
+PRINTL 한소라가 깨달은 사랑에서 온 힘을 바탕으로 한 문장, 가루다몬 계열 디지몬을 강화한다.

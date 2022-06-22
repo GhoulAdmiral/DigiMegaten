@@ -1,0 +1,67 @@
+﻿;======================================================
+;장비品の데이터
+;;
+;======================================================
+@기본능력수정_8307,ARG,ARG:1 = -1
+SELECTCASE GET_BASESTATUS(ARG)
+	CASE "마력"
+		RETURN 4
+	CASE "운"
+		RETURN 4
+RETURN 0
+
+@증가CP_8307
+RETURN 100
+
+@전투능력수정_8307,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 0
+
+@방어상성_8307,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 100
+
+@공격상성_8307, ARG = -1
+RETURN 2
+
+@최저공격횟수_8307, ARG = -1
+RETURN 1
+
+@최대공격횟수_8307, ARG = -1
+RETURN 1
+
+@사거리_8307, ARG = -1
+RETURN 1
+
+@공격범위_8307, ARG = -1
+RETURN 1
+
+@장비箇所_8307
+RETURN 0
+
+@필요레벨_8307
+RETURN 0
+
+@장비조건_8307,ARG
+SIF NO:ARG == 8517 || NO:ARG == 8518
+	RETURN 1
+RETURN 0
+
+@장비추가스킬_8307,ARG,ARG:1 = -1
+SELECTCASE ARG
+	CASE 0
+		RETURN [[스킬:어드바이스]]
+ENDSELECT
+RETURN 0
+
+
+@장비조건설명_8307
+PRINTL 엔젤우몬 계열의 완전체 이상 디지몬
+
+@구입조건_8307
+RETURN 0
+
+@장비해설_8307
+PRINTL 선택받은 아이들의 문장 중에서도 특별한 빛의 힘을 가진 문장, 엔젤우몬 계열 디지몬을 강화한다.

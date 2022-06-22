@@ -1,0 +1,67 @@
+﻿;======================================================
+;장비品の데이터
+;;
+;======================================================
+@기본능력수정_8304,ARG,ARG:1 = -1
+SELECTCASE GET_BASESTATUS(ARG)
+	CASE "지혜"
+		RETURN 4
+	CASE "속도"
+		RETURN 4
+RETURN 0
+
+@증가CP_8304
+RETURN 100
+
+@전투능력수정_8304,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 0
+
+@방어상성_8304,ARG,ARG:1 = -1
+SELECTCASE ARG
+ENDSELECT
+RETURN 100
+
+@공격상성_8304, ARG = -1
+RETURN 2
+
+@최저공격횟수_8304, ARG = -1
+RETURN 1
+
+@최대공격횟수_8304, ARG = -1
+RETURN 1
+
+@사거리_8304, ARG = -1
+RETURN 1
+
+@공격범위_8304, ARG = -1
+RETURN 1
+
+@장비箇所_8304
+RETURN 0
+
+@필요레벨_8304
+RETURN 0
+
+@장비조건_8304,ARG
+SIF NO:ARG == 8513 || NO:ARG == 8514
+	RETURN 1
+RETURN 0
+
+@장비추가스킬_8304,ARG,ARG:1 = -1
+SELECTCASE ARG
+	CASE 0
+		RETURN [[스킬:기공(대)]]
+ENDSELECT
+RETURN 0
+
+
+@장비조건설명_8304
+PRINTL 로제몬 계열의 완전체 이상 디지몬
+
+@구입조건_8304
+RETURN 0
+
+@장비해설_8304
+PRINTL 미나의 순수함을 바탕으로 하는 문장, 로제몬 계열의 디지몬을 강화한다.
