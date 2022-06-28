@@ -2,7 +2,7 @@
 
 ;스킬名
 @SKILL_NAME_,ARG
-RESULTS = ;스킬명
+RESULTS = 
 
 ;　명중
 @SKILL_HITRATE_, ARG
@@ -70,7 +70,7 @@ SIF ARG == 1
 RETURN 
 
 ;속도보정
-@SKILL_SPEED_, ARG = -1; ARG 의미가 뭔지 원
+@SKILL_SPEED_, ARG = -1
 RETURN 
 
 ;　구상の표시とその타입
